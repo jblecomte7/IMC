@@ -14,24 +14,29 @@
     />
   </head>
   <body>
-    <h1>BMC calculator</h1>
+    <h1>Suivi IMC</h1>
     <section>
       <form action="">
-        <label for="weight">Poids :</label>
-        <input
-          type="number"
-          name="weight"
-          id="weightInput"
-          placeholder="Poids en kg"
-        />
-        <label for="height">Taille :</label>
-        <input
-          type="number"
-          name="height"
-          id="heightInput"
-          placeholder="Taille en cm"
-        />
-        <button id="calculBtn">Calcul</button>
+        <div class="form__input">
+          <label for="weight">Poids :</label>
+          <input
+            type="number"
+            name="weight"
+            id="weightInput"
+            placeholder="Poids en kg"
+          />
+        </div>
+        <div class="form__input">
+          <label for="height">Taille :</label>
+          <input
+            type="number"
+            name="height"
+            id="heightInput"
+            placeholder="Taille en cm"
+          />
+        </div>
+        <button id="calculBtn">Calculer IMC</button>
+        <button id="reset">Reset</button>
       </form>
       <div class="result">
         <p id="result"></p>

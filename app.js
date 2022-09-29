@@ -16,17 +16,23 @@ let error = document.querySelector("#error");
 let resultBMI = document.querySelector("#result");
 let health = document.querySelector("#etat");
 let showError = document.createElement("p");
+let resetBtn = document.querySelector("#reset");
+let calcBtn = document.querySelector("#calculBtn");
+
+// VAR PARAMS
+
+resetBtn.disabled = true;
 
 // FUNCTION
 
-form.addEventListener("submit", (e) => {
+calcBtn.addEventListener("click", (e) => {
   e.preventDefault();
   calculateBMC();
 });
 
 const calculateBMC = () => {
-  const height = heightValue.value;
-  const weight = weightValue.value;
+  let height = heightValue.value;
+  let weight = weightValue.value;
   if (!height || !weight || weight <= 0 || height <= 0) {
     showError.textContent = "Les informations saisies ne sont pas valides";
     error.append(showError);
@@ -40,5 +46,18 @@ const calculateBMC = () => {
     resultBMI.style.color = BMIResult.color;
     health.textContent = BMIResult.name;
     showError.remove();
+    heightValue.value = "";
+    weightValue.value = "";
+    calcBtn.disabled = true;
+    resetBtn.disabled = false;
   }
 };
+
+resetBtn.addEventListener("click", () => {
+  heightValue.value = "";
+  weightValue.value = "";
+  resultBMI.textContent = "";
+  health.textContent = "";
+  calcBtn.disabled = false;
+  resetBtn.disabled = true;
+});
